@@ -1,0 +1,35 @@
+.login h4 {
+  /* color: #52afb0; */
+  color: #1dc8e3;
+}
+
+
+.myForm {
+  padding-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #52afb0;
+  border-color: #52afb0;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background-color: #3f4d67;
+  border-color: #3f4d67;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+  background-color: #3f4d67;
+  border-color: #3f4d67;
+}
+
+.forgotPass {
+  font-size: 12px;
+  margin-top: 1rem;
+  /* text-align: right; */
+}

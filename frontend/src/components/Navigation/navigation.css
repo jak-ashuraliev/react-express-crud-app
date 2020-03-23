@@ -1,0 +1,11 @@
+.bg-dark {
+  background: #3f4d67 !important;
+}
+
+.nav-link {
+  color: #52afb0 !important;
+}
+
+.nav-link:hover {
+  color: #1dd3d5 !important;
+}

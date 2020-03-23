@@ -1,0 +1,22 @@
+.signup h4 {
+  color: #ff6583;
+}
+
+.signup .btn-primary {
+  color: #fff;
+  background-color: #ff6583;
+  border-color: #ff6583;
+  width: 100%;
+}
+
+.signup .btn-primary:hover {
+  background-color: #bd425a;
+  border-color: #bd425a;
+}
+
+.signup .btn-primary:not(:disabled):not(.disabled).active,
+.signup .btn-primary:not(:disabled):not(.disabled):active,
+.show>.btn-primary.dropdown-toggle {
+  background-color: #bd425a;
+  border-color: #bd425a;
+}

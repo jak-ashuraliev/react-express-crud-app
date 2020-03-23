@@ -1,0 +1,11 @@
+.card-block {
+  padding: 2rem;
+}
+
+.progress-bar.progress-c-theme {
+  background: linear-gradient(-135deg, #1de9b6 0%, #1dc4e9 100%);
+}
+
+.progress-bar.progress-c-theme2 {
+  background: linear-gradient(-135deg, #899FD4 0%, #A389D4 100%);
+}
