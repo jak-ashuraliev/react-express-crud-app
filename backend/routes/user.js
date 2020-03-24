@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
 
 const User = require('../routes/models/user');
 
@@ -12,13 +13,13 @@ router.post('/signup', (req, res, next) => {
     .exec()
     .then(user => {
       if (user.length >= 1) {
-        return res.json({
+        return res.status(409).json({
           message: 'Email address already in the system.'
         })
       } else {
         bcrypt.hash(req.body.password, 10, (err, hash) => {
           if (err) {
-            return res.json({
+            return res.status(500).json({
               error: err
             });
           } else {
@@ -30,13 +31,13 @@ router.post('/signup', (req, res, next) => {
             user.save()
               .then(result => {
                 console.log(result);
-                res.json({
+                res.status(201).json({
                   message: 'User has been created!'
                 })
               })
               .catch(err => {
                 console.log(err);
-                res.json({
+                res.status(500).json({
                   error: err
                 });
               });
@@ -53,29 +54,36 @@ router.post('/login', (req, res, next) => {
     .exec()
     .then(user => {
       if (user.length < 1) {
-        return res.json({
+        return res.status(401).json({
           message: 'Authentication Failed.'
         });
       }
       bcrypt.compare(req.body.password, user[0].password, (err, result) => {
         if (err) {
-          return res.json({
+          return res.status(401).json({
             message: 'Authentication Failed.'
           });
         }
         if (result) {
-          return res.json({
-            message: 'Authentication Successful.'
+          const token = jwt.sign({
+            email: user[0].email,
+            userId: user[0]._id
+          }, process.env.JWT_KEY, {
+            expiresIn: '1h'
+          });
+          return res.status(200).json({
+            message: 'Authentication Successful.',
+            token: token
           });
         }
-        res.json({
+        res.status(401).json({
           message: 'Authentication Failed.'
         });
       });
     })
     .catch(err => {
       console.log(err);
-      res.json({
+      res.status(500).json({
         error: err
       });
     });
@@ -87,13 +95,13 @@ router.delete('/:id', (req, res, next) => {
     })
     .exec()
     .then(result => {
-      res.json({
+      res.status(200).json({
         message: 'User Removed!'
       });
     })
     .catch(err => {
       console.log(err);
-      res.json({
+      res.status(500).json({
         error: err
       });
     });

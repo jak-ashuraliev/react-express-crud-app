@@ -1,18 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
+const checkAuth = require('./middleware/check-auth');
 
-const Vendor = require('./models/vendor');
+const Employees = require('./models/employees');
 
-// GET list of VENDORS
-router.get('/', (req, res, next) => {
-  Vendor.find()
-    .select(' vendorName firstName lastName phone email')
+// GET LIST OF EMPLOYEES
+router.get('/', checkAuth, (req, res, next) => {
+  Employees.find()
+    .select('firstName lastName department phone email')
     .exec()
     .then(docs => {
       const response = {
         // count: docs.length,
-        vendor: docs
+        employee: docs
       }
       if (docs.length >= 0) {
         res.json(docs);
@@ -30,23 +31,23 @@ router.get('/', (req, res, next) => {
     });
 });
 
-// POST/INSERT NEW VENDOR
-router.post('/', (req, res, next) => {
+// POST/INSERT NEW EMPLOYEE
+router.post('/', checkAuth, (req, res, next) => {
 
-  const vendor = new Vendor({
+  const employee = new Employees({
     _id: new mongoose.Types.ObjectId(),
-    vendorName: req.body.vendorName,
     firstName: req.body.firstName,
     lastName: req.body.lastName,
+    department: req.body.department,
     phone: req.body.phone,
     email: req.body.email,
   });
-  vendor.save()
+  employee.save()
     .then(result => {
       console.log(result);
       res.json({
-        message: 'Handling POST / INSERT requests to /vendor',
-        createVendor: vendor
+        message: 'Handling POST / INSERT requests to /employee',
+        createEmployee: employee
       });
     })
     .catch(err => {
@@ -57,10 +58,10 @@ router.post('/', (req, res, next) => {
     });
 });
 
-// GET SPECIFIC VENDOR
-router.get('/:id', (req, res, next) => {
+// GET SPECIFIC EMPLOYEE
+router.get('/:id', checkAuth, (req, res, next) => {
   const id = req.params.id;
-  Vendor.findById(id)
+  Employees.findById(id)
     .exec()
     .then(doc => {
       console.log(doc);
@@ -82,14 +83,14 @@ router.get('/:id', (req, res, next) => {
     });
 });
 
-// UPDATE SPECIFIC VENDOR
-router.patch('/:id', (req, res, next) => {
+// UPDATE SPECIFIC EMPLOYEE
+router.patch('/:id', checkAuth, (req, res, next) => {
   const id = req.params.id;
   const updateOps = {};
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value;
   }
-  Vendor.update({
+  Employees.update({
       _id: id
     }, {
       $set: updateOps
@@ -107,10 +108,10 @@ router.patch('/:id', (req, res, next) => {
     });
 });
 
-// DELETE SPECIFIC VENDOR
-router.delete('/:id', (req, res, next) => {
+// DELETE SPECIFIC EMPLOYEE
+router.delete('/:id', checkAuth, (req, res, next) => {
   const id = req.params.id;
-  Vendor.remove({
+  Employees.remove({
       _id: id
     })
     .exec()

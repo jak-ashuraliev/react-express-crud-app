@@ -5,13 +5,13 @@ const logger = require('morgan');
 const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/index');
-const vendorRouter = require('./routes/vendor');
 const userRouter = require('./routes/user');
+const employeeRouter = require('./routes/employees');
 
 const app = express();
 
 // Connect to Mongoose DB
-mongoose.connect('mongodb+srv://macUser:access3@cluster0-mvlok.mongodb.net/test?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://macUser:access3@cluster0-mvlok.mongodb.net/EmpReactApp?retryWrites=true&w=majority', {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
@@ -42,7 +42,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/', indexRouter);
-app.use('/vendor', vendorRouter);
 app.use('/user', userRouter);
+app.use('/employee', employeeRouter);
 
 module.exports = app;

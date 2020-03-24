@@ -1,16 +1,16 @@
 const mongoose = require('mongoose');
 
-const vendorSchema = mongoose.Schema({
+const employeeSchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
-  vendorName: {
-    type: String,
-    required: true
-  },
   firstName: {
     type: String,
     required: true
   },
   lastName: {
+    type: String,
+    required: true
+  },
+  department: {
     type: String,
     required: true
   },
@@ -24,4 +24,4 @@ const vendorSchema = mongoose.Schema({
   },
 });
 
-module.exports = mongoose.model('Vendor', vendorSchema);
+module.exports = mongoose.model('Employees', employeeSchema);
