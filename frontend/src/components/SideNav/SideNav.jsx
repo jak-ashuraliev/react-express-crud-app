@@ -16,23 +16,23 @@ export default function SideNav(props) {
 						</a>
 					</li>
 					<li>
-						<a href="/user">
-							<i className="fas fa-users" /> Users
+						<a href="/employee">
+							<i className="fas fa-users" /> Employees
 						</a>
 					</li>
 					<li>
-						<a href="/add-user">
-							<i className="fas fa-user-plus" /> Add user
+						<a href="/add-employee">
+							<i className="fas fa-user-plus" /> Add employee
 						</a>
 					</li>
 					<li>
-						<a href="/remove-user">
-							<i className="fas fa-user-minus" /> Remove user
+						<a href="/remove-employee">
+							<i className="fas fa-user-minus" /> Remove employee
 						</a>
 					</li>
 					<li>
-						<a href="/update-user">
-							<i className="fas fa-user-edit" /> Edit user
+						<a href="/update-employee">
+							<i className="fas fa-user-edit" /> Edit employee
 						</a>
 					</li>
 					<li>
