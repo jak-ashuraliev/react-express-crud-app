@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './dashboard.css';
-import { Row, Col } from 'react-bootstrap';
+import './Dashboard.css';
+import { Row, Col, Container } from 'react-bootstrap';
 
 export default class Dashboard extends Component {
 	render() {
 		return (
-			<div>
+			<Container>
 				<Row>
 					<Col xs="12" sm="12" md="12" lg="12" xl="12">
 						<h6 style={{ color: '#3f4d67', fontWeight: 'normal' }}>Dashboard</h6>
@@ -68,7 +68,7 @@ export default class Dashboard extends Component {
 						</div>
 					</Col>
 				</Row>
-			</div>
+			</Container>
 		);
 	}
 }

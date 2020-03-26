@@ -6,7 +6,7 @@ const checkAuth = require('./middleware/check-auth');
 const Employees = require('./models/employees');
 
 // GET LIST OF EMPLOYEES
-router.get('/', checkAuth, (req, res, next) => {
+router.get('/', (req, res, next) => {
   Employees.find()
     .select('firstName lastName department phone email')
     .exec()
@@ -32,7 +32,7 @@ router.get('/', checkAuth, (req, res, next) => {
 });
 
 // POST/INSERT NEW EMPLOYEE
-router.post('/', checkAuth, (req, res, next) => {
+router.post('/', (req, res, next) => {
 
   const employee = new Employees({
     _id: new mongoose.Types.ObjectId(),
@@ -59,7 +59,7 @@ router.post('/', checkAuth, (req, res, next) => {
 });
 
 // GET SPECIFIC EMPLOYEE
-router.get('/:id', checkAuth, (req, res, next) => {
+router.get('/:id', (req, res, next) => {
   const id = req.params.id;
   Employees.findById(id)
     .exec()
@@ -84,7 +84,7 @@ router.get('/:id', checkAuth, (req, res, next) => {
 });
 
 // UPDATE SPECIFIC EMPLOYEE
-router.patch('/:id', checkAuth, (req, res, next) => {
+router.patch('/:id', (req, res, next) => {
   const id = req.params.id;
   const updateOps = {};
   for (const ops of req.body) {
@@ -109,7 +109,7 @@ router.patch('/:id', checkAuth, (req, res, next) => {
 });
 
 // DELETE SPECIFIC EMPLOYEE
-router.delete('/:id', checkAuth, (req, res, next) => {
+router.delete('/:id', (req, res, next) => {
   const id = req.params.id;
   Employees.remove({
       _id: id

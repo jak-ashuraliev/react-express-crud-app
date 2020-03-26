@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './login.css';
+import './Login.css';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import img from '../../images/authentication.png';
 import { Link } from 'react-router-dom';

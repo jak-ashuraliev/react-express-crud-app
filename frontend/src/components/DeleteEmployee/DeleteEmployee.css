@@ -1,0 +1,13 @@
+.btn-danger {
+  font-size: 12px;
+}
+
+.btn-remove {
+  position: relative;
+  right: 30px;
+  top: 52px;
+}
+
+td {
+  line-height: 30px;
+}

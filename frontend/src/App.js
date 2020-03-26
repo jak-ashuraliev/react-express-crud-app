@@ -25,39 +25,20 @@ import DeleteEmployee from './components/DeleteEmployee/DeleteEmployee';
 import UpdateUser from './components/UpdateEmployee/UpdateEmployee';
 
 class App extends Component {
-	constructor(props) {
-		super(props);
-		this.setChanged = this.setChanged.bind(this);
-		this.state = {
-			isLoggedIn: false
-		};
-	}
-
-	setChanged = () => {
-		this.setState({
-			isLoggedIn: true
-		});
-	};
-
 	render() {
-		if (!this.state.isLoggedIn) {
 			return ( <
 					Container fluid className = "app-container" >
 					<
 					SideNav setChanged = {
 						this.setChanged
 					}
-					/>{' '} <
+					/>  <
 					div className = "App" >
 					<
 					Container className = "main-container" >
 					<
 					Router > {
-						' '
-					} {
 						/* <Route exact path="/" component={Login} />{' '} */
-					} {
-						' '
 					} <
 					Route exact path = "/"
 					component = {
@@ -98,7 +79,9 @@ class App extends Component {
 					component = {
 						UpdateUser
 					}
-					/> {' '} < /
+					/> {
+						' '
+					} < /
 					Router > {
 						' '
 					} {
@@ -111,76 +94,7 @@ class App extends Component {
 			' '
 		} <
 		/Container>
-	);
-} else {
-	return ( <
-			Container fluid className = "app-container" >
-			<
-			div className = "App" >
-			<
-			Container className = "main-container" >
-			<
-			Router > {
-				' '
-			} {
-				/* <Route exact path="/" component={Login} /> */
-			} {
-				' '
-			} <
-			Route exact path = "/"
-			component = {
-				Login
-			}
-			/> {' '} <
-			Route path = "/location"
-			component = {
-				Location
-			}
-			/> {' '} <
-			Route path = "/signup"
-			component = {
-				Signup
-			}
-			/> {' '} <
-			Route path = "/dashboard"
-			component = {
-				Dashboard
-			}
-			/> {' '} <
-			Route path = "/employee"
-			component = {
-				GetEmployee
-			}
-			/> {' '} <
-			Route path = "/add-employee"
-			component = {
-				PostEmployee
-			}
-			/> {' '} <
-			Route path = "/remove-employee"
-			component = {
-				DeleteEmployee
-			}
-			/> {' '} <
-			Route path = "/update-employee"
-			component = {
-				UpdateUser
-			}
-			/> {' '} < /
-			Router > {
-				' '
-			} {
-				' '
-			} <
-			/Container>{' '} {
-			' '
-		} <
-		/div>{' '} {
-	' '
-} <
-/Container>
 );
-}
 }
 }
 

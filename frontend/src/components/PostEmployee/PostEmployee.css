@@ -1,0 +1,40 @@
+table {
+  font-size: 13px;
+  color: #3f4d67 !important;
+}
+
+Form {
+  font-size: 14px;
+  margin-top: 1rem;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(29, 200, 227, 0.26);
+}
+
+.table-hover tbody tr:hover {
+  background-color: #a9b7d0;
+}
+
+.btn-warning {
+  color: #3f4d67;
+  background-color: #1dc8e3;
+  border-color: #1dc8e3;
+  width: 100%;
+}
+
+.btn-warning:hover {
+  background-color: #3f4d67;
+  border-color: #3f4d67;
+  color: #1dc8e3;
+}
+
+.btn-warning:not(:disabled):not(.disabled).active,
+.btn-warning:not(:disabled):not(.disabled):active,
+.show>.btn-warning.dropdown-toggle,
+.btn-warning.focus,
+.btn-warning:focus {
+  background-color: #3f4d67;
+  border-color: #3f4d67;
+  color: #1dc8e3;
+}

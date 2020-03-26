@@ -1,5 +1,5 @@
 import React from 'react';
-import './sidenav.css';
+import './Sidenav.css';
 
 export default function SideNav(props) {
 	return (
@@ -42,7 +42,7 @@ export default function SideNav(props) {
 					</li>
 					<label>SETTINGS</label>
 					<li>
-						<a href="##" onClick={() => props.setChanged()}>
+						<a href="/">
 							<i className="fas fa-sign-out-alt" /> Logout
 						</a>
 					</li>

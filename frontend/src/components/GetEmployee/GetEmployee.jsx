@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './GetEmployee.css';
 import { Table, Container, Row, Col } from 'react-bootstrap';
 
 export default class GetEmployee extends Component {
@@ -27,7 +28,7 @@ export default class GetEmployee extends Component {
 				<Container>
 					<Row>
 						<Col xs="12" sm="12" md="12" lg="12" xl="12">
-							<h6 style={{ color: '#3f4d67', fontWeight: 'normal' }}>Current employees</h6>
+							<h6 style={{ color: '#3f4d67', fontWeight: 'normal' }}>Current Employees</h6>
 							<hr />
 						</Col>
 						<Col>
