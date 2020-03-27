@@ -22,78 +22,84 @@ import SideNav from './components/SideNav/SideNav';
 import GetEmployee from './components/GetEmployee/GetEmployee';
 import PostEmployee from './components/PostEmployee/PostEmployee';
 import DeleteEmployee from './components/DeleteEmployee/DeleteEmployee';
-import UpdateUser from './components/UpdateEmployee/UpdateEmployee';
+import UpdateEmployee from './components/UpdateEmployee/UpdateEmployee';
 
 class App extends Component {
 	render() {
-			return ( <
-					Container fluid className = "app-container" >
-					<
-					SideNav setChanged = {
-						this.setChanged
-					}
-					/>  <
-					div className = "App" >
-					<
-					Container className = "main-container" >
-					<
-					Router > {
-						/* <Route exact path="/" component={Login} />{' '} */
-					} <
-					Route exact path = "/"
-					component = {
-						Dashboard
-					}
-					/> {' '} <
-					Route path = "/location"
-					component = {
-						Location
-					}
-					/> {' '} <
-					Route path = "/signup"
-					component = {
-						Signup
-					}
-					/> {' '} <
-					Route path = "/dashboard"
-					component = {
-						Dashboard
-					}
-					/> {' '} <
-					Route path = "/employee"
-					component = {
-						GetEmployee
-					}
-					/> {' '} <
-					Route path = "/add-employee"
-					component = {
-						PostEmployee
-					}
-					/> {' '} <
-					Route path = "/remove-employee"
-					component = {
-						DeleteEmployee
-					}
-					/> {' '} <
-					Route path = "/update-employee"
-					component = {
-						UpdateUser
-					}
-					/> {
-						' '
-					} < /
-					Router > {
-						' '
-					} {
-						' '
-					} <
-					/Container>{' '} {
-					' '
-				} <
-				/div>{' '} {
+		return ( <
+				Container fluid className = "app-container" >
+				<
+				SideNav setChanged = {
+					this.setChanged
+				}
+				/>  <
+				div className = "App" >
+				<
+				Container className = "main-container" >
+				<
+				Router >
+				<
+				Route exact path = "/"
+				component = {
+					Dashboard
+				}
+				/> <
+				Route exact path = "/login"
+				component = {
+					Login
+				}
+				/> {
+				' '
+			} <
+			Route path = "/location"
+		component = {
+			Location
+		}
+		/> {' '} <
+		Route path = "/signup"
+		component = {
+			Signup
+		}
+		/> {' '} <
+		Route path = "/dashboard"
+		component = {
+			Dashboard
+		}
+		/> {' '} <
+		Route path = "/employee"
+		component = {
+			GetEmployee
+		}
+		/> {' '} <
+		Route path = "/add-employee"
+		component = {
+			PostEmployee
+		}
+		/> {' '} <
+		Route path = "/remove-employee"
+		component = {
+			DeleteEmployee
+		}
+		/> {' '} <
+		Route path = "/update-employee"
+		component = {
+			UpdateEmployee
+		}
+		/> {
+		' '
+	} < /
+	Router > {
+			' '
+		} {
 			' '
 		} <
-		/Container>
+		/Container>{' '} {
+	' '
+} <
+/div>{' '} {
+' '
+} <
+/Container>
 );
 }
 }

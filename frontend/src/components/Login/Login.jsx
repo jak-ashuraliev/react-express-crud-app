@@ -29,7 +29,7 @@ export default class Login extends Component {
 									</Button>
 								</Col>
 								<Col xs="12" className="forgotPass">
-									<a href="/">Forgot password?</a>
+									<a href="/signup">Forgot password?</a>
 								</Col>
 							</Row>
 						</Form>

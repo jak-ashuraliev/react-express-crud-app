@@ -13,11 +13,17 @@
   background-color: #52afb0;
   border-color: #52afb0;
   width: 100%;
+  text-decoration: none;
 }
 
 .btn-primary:hover {
   background-color: #3f4d67;
   border-color: #3f4d67;
+}
+
+.login Button a {
+  color: white !important;
+  text-decoration: none;
 }
 
 .btn-primary:not(:disabled):not(.disabled).active,

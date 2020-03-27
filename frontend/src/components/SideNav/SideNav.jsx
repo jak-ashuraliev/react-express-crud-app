@@ -42,7 +42,7 @@ export default function SideNav(props) {
 					</li>
 					<label>SETTINGS</label>
 					<li>
-						<a href="/">
+						<a href="/login">
 							<i className="fas fa-sign-out-alt" /> Logout
 						</a>
 					</li>
