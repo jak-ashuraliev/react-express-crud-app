@@ -22,7 +22,7 @@ nav label {
 
 .sideNav {
   background: #3f4d67;
-  height: 100vh;
+  min-height: 100vh;
   width: 300px;
 }
 
@@ -50,6 +50,10 @@ nav a:hover {
 .fas {
   padding-right: 10px;
   line-height: 15px;
+}
+
+.footnote {
+  margin-bottom: 2rem;
 }
 
 .footnote small {

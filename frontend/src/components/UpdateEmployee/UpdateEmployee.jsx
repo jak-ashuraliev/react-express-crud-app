@@ -1,27 +1,15 @@
 import React, { Component } from 'react';
 import { Table, Container, Row, Col, Button } from 'react-bootstrap';
-import ModalEmployeePut from '../ModalEmployeePut/ModalEmployeePut';
-
-// const initialState = {
-// 	firstName: '',
-// 	lastName: '',
-// 	department: '',
-// 	phone: '',
-// 	email: '',
-// 	emailError: ''
-// };
+import { Link } from 'react-router-dom';
+import './UpdateEmployee.css';
 
 export default class UpdateEmployee extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			isLoaded: false,
-			employees: [],
-			modalShow: false
-		};
-	}
+	state = {
+		isLoaded: false,
+		employees: []
+	};
 
-	async componentDidMount() {
+	componentDidMount = async () => {
 		const url = 'http://localhost:3000/employee';
 		const response = await fetch(url);
 		const employeeData = await response.json();
@@ -31,9 +19,17 @@ export default class UpdateEmployee extends Component {
 		});
 	}
 
+	removeEmployee(_id) {
+		if (window.confirm('Are you sure you want to delete this employee?')) {
+			fetch('http://localhost:3000/employee/' + _id, {
+				method: 'DELETE',
+				header: { Accpet: 'application/json', 'Content-Type': 'application/json' }
+			});
+		}
+	}
+
 	render() {
 		const { isLoaded, employees } = this.state;
-		let modalHide = () => this.setState({ modalShow: false });
 
 		if (!isLoaded) {
 			return <div>Loading...</div>;
@@ -42,7 +38,7 @@ export default class UpdateEmployee extends Component {
 				<Container>
 					<Row>
 						<Col xs="12" sm="12" md="12" lg="12" xl="12">
-							<h6 style={{ color: '#3f4d67', fontWeight: 'normal' }}>Update Employee</h6>
+							<h6 style={{ color: '#3f4d67', fontWeight: 'normal' }}>Edit Employee</h6>
 							<hr />
 						</Col>
 						<Col>
@@ -68,13 +64,11 @@ export default class UpdateEmployee extends Component {
 											<td>
 												<div className="text-center">
 													<Button
-														onClick={() => this.setState({ modalShow: true })}
 														className="btn-sm"
 														variant="success"
 													>
-														Edit
+														<Link to='/employee/:id'>Edit</Link>
 													</Button>
-													<ModalEmployeePut show={this.state.modalShow} onHide={modalHide} />
 												</div>
 											</td>
 										</tr>

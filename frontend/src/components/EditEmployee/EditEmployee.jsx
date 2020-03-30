@@ -1,68 +1,61 @@
-import React, { Component } from "react";
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import axios from "axios";
+import React, { Component } from 'react';
+import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import img from '../../images/add-file.png';
+import axios from 'axios';
 
 const initialState = {
-  vendorName: "",
-  firstName: "",
-  lastName: "",
-  phone: "",
-  email: "",
-  emailError: ""
+  firstName: '',
+  lastName: '',
+  department: '',
+  phone: '',
+  email: '',
+  emailError: ''
 };
 
-class PostForm extends Component {
+class EditEmployee extends Component {
   state = initialState;
 
   // changeHandler
-  changeHandler = e => {
+  changeHandler = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
   // submitHandler
-  submitHandler = e => {
+  submitHandler = (e) => {
     e.preventDefault();
-    console.log(this.state);
+    // console.log(this.state);
 
     // clear the form
     this.setState(initialState);
 
     axios
-      .post("http://localhost:3000/vendor", this.state)
-      .then(res => {
-        console.log(res);
+      .post('http://localhost:3000/employee', this.state)
+      .then((res) => {
+        // console.log(res);
       })
-      .catch(err => {
-        console.log(err);
+      .catch((err) => {
+        // console.log(err);
       });
   };
 
   render() {
-    const { vendorName, firstName, lastName, phone, email } = this.state;
+    const { firstName, lastName, department, phone, email } = this.state;
 
     return (
       <div>
         <Container className="text-left">
           <Row>
-            <Col>
-              <Form
-                onSubmit={this.submitHandler}
-                style={{ width: "400px", margin: "50px auto" }}
-              >
-                <h3 className="text-muted">Add New Vendor</h3>
-                <br></br>
+            <Col xs="12" sm="12" md="12" lg="12" xl="12">
+              <h6 style={{ color: '#3f4d67', fontWeight: 'normal' }}>Edit Employee</h6>
+              <hr />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs="12" sm="5" md="5" lg="5" xl="5">
+              <Form onSubmit={this.submitHandler}>
                 <Form.Group controlId="formBasicText">
-                  <p className="text-muted mb-0">Vendor name:</p>
+                  <p className="text-muted mb-0">Fist name:</p>
 
-                  <Form.Control
-                    type="text"
-                    name="vendorName"
-                    value={vendorName}
-                    onChange={this.changeHandler}
-                  />
-                </Form.Group>
-                <Form.Group controlId="formBasicText">
-                  <p className="text-muted mb-0">First name:</p>
                   <Form.Control
                     type="text"
                     name="firstName"
@@ -70,6 +63,7 @@ class PostForm extends Component {
                     onChange={this.changeHandler}
                   />
                 </Form.Group>
+
                 <Form.Group controlId="formBasicText">
                   <p className="text-muted mb-0">Last name:</p>
                   <Form.Control
@@ -79,6 +73,17 @@ class PostForm extends Component {
                     onChange={this.changeHandler}
                   />
                 </Form.Group>
+
+                <Form.Group controlId="formBasicText">
+                  <p className="text-muted mb-0">Department:</p>
+                  <Form.Control
+                    type="text"
+                    name="department"
+                    value={department}
+                    onChange={this.changeHandler}
+                  />
+                </Form.Group>
+
                 <Form.Group controlId="formBasicText">
                   <p className="text-muted mb-0">Phone:</p>
                   <Form.Control
@@ -88,6 +93,7 @@ class PostForm extends Component {
                     onChange={this.changeHandler}
                   />
                 </Form.Group>
+
                 <Form.Group controlId="formBasicEmail">
                   <p className="text-muted mb-0">Email:</p>
                   <Form.Control
@@ -97,10 +103,15 @@ class PostForm extends Component {
                     onChange={this.changeHandler}
                   />
                 </Form.Group>
-                <Button variant="warning" type="submit">
-                  Submit
-                </Button>
+
+                <Button variant="success" type="submit">
+                  Update Employee
+								</Button>
               </Form>
+            </Col>
+
+            <Col xs="12" sm="7" md="7" lg="7" xl="7">
+              <img className="img-fluid mt-5" src={img} alt="add file" />
             </Col>
           </Row>
         </Container>
@@ -109,4 +120,4 @@ class PostForm extends Component {
   }
 }
 
-export default PostForm;
+export default EditEmployee;
