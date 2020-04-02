@@ -20,7 +20,6 @@ export default class GetEmployee extends Component {
 
 	render() {
 		const { isLoaded, employees } = this.state;
-
 		if (!isLoaded) {
 			return <div>Loading...</div>;
 		} else {
@@ -61,3 +60,4 @@ export default class GetEmployee extends Component {
 		}
 	}
 }
+
